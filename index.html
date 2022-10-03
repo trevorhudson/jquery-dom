@@ -75,6 +75,52 @@
 <script src="https://unpkg.com/jquery"></script>
 <script>
   // Add your code here!
+  //
+  $("article img").addClass("image-center");
+
+  //$("p").remove(":contains('Consequuntur porro')");
+  let $para = $("p");
+  let $paraArr = $para.get().length;
+  $para
+    .get($paraArr - 1)
+    .remove();
+
+  function getRandomNumber(){
+    return Math.floor(Math.random() * 100);
+  }
+  $("#title")
+    .css("font-size",getRandomNumber());
+
+  //let $orderList = $("aside ol");
+  $("aside ol").append("<li>blah balh RUUFF</li>");
+
+  $("aside")
+    .empty()
+    .append("<p>Sorry for making you write the list</p>");
+
+  let $red = $(".form-control").get(0);
+  let $blue = $(".form-control").get(1);
+  let $green = $(".form-control").get(2);
+
+  // $red.attr();
+    // .get(1).attr("id", "blue")
+    // .get(2).attr("id", "green");
+  /** Input:  */
+  // function getRGB(){
+  //   return `rgb(${$red.value}, ${$green.value}, ${$blue.value})`; 
+  // }
+  
+  $(".mb-5").on("change", function(){
+    $("body")
+      .css("background-color", `rgb(${$red.value}, ${$green.value}, ${$blue.value})`);
+  })
+
+  function deleteImg(e){
+    e.target.remove();
+  }
+
+  $(".container").on("click", "img", deleteImg);
+
 </script>
 </body>
 
