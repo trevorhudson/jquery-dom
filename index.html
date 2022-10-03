@@ -74,8 +74,9 @@
 </div>
 <script src="https://unpkg.com/jquery"></script>
 <script>
-  // Add your code here!
-  //
+  'use strict';
+
+  // center images
   $("article img").addClass("image-center");
 
   //$("p").remove(":contains('Consequuntur porro')");
@@ -85,40 +86,40 @@
     .get($paraArr - 1)
     .remove();
 
+  /** generate random number from 1 - 100 */
   function getRandomNumber(){
     return Math.floor(Math.random() * 100);
   }
+
+  // change title font to random size
   $("#title")
     .css("font-size",getRandomNumber());
 
   //let $orderList = $("aside ol");
   $("aside ol").append("<li>blah balh RUUFF</li>");
 
+  // remove last paragraph
   $("aside")
     .empty()
     .append("<p>Sorry for making you write the list</p>");
 
-  let $red = $(".form-control").get(0);
-  let $blue = $(".form-control").get(1);
-  let $green = $(".form-control").get(2);
+  // get color inputs from DOM
+  let [$red, $blue, $green] = $(".form-control").get();
 
-  // $red.attr();
-    // .get(1).attr("id", "blue")
-    // .get(2).attr("id", "green");
-  /** Input:  */
-  // function getRGB(){
-  //   return `rgb(${$red.value}, ${$green.value}, ${$blue.value})`; 
-  // }
-  
+  // register 'change' event to update background color
   $(".mb-5").on("change", function(){
     $("body")
       .css("background-color", `rgb(${$red.value}, ${$green.value}, ${$blue.value})`);
   })
 
+
+  /** Takes in image, deletes image */
+
   function deleteImg(e){
     e.target.remove();
   }
 
+  // add listener for deleting image on click
   $(".container").on("click", "img", deleteImg);
 
 </script>
